@@ -25,13 +25,18 @@ input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
 })
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
     
-    speed += -1
+    balance -= 0.1
+    if (balance < 0) {
+        balance = 0
+    }
+    
 })
 input.onButtonPressed(Button.B, function on_button_pressed_B() {
     
-    speed += 1
+    balance += 1
 })
 let speed = 0
+let balance = 0.5
 motorACoast()
 basic.forever(function on_forever() {
     basic.showNumber(speed)

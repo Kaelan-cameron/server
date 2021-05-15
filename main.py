@@ -22,19 +22,30 @@ def on_button_pressed_ab():
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 def on_button_pressed_a():
-    global speed
-    speed += -1
+    global balance
+    balance -= 0.1
+    if balance <0:
+        balance =0
+
+
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_B():
-    global speed 
-    speed += 1
+    global balance
+    balance += 1
 input.on_button_pressed(Button.B, on_button_pressed_B)
 
 speed = 0
+balance = 0.5
 motorACoast ()
+
+
+
+
 
 def on_forever():
     basic.show_number(speed)
     setmotorASpeed (speed)
 basic.forever(on_forever)
+
+
